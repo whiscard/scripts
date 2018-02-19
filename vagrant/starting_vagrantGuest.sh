@@ -6,9 +6,10 @@ STANDARDLOGFILE="/var/log/startupscripts/vagrant_startingGuest.log"
 vagrant_idemp=`which vagrant`
 WDIR="/opt/vms/vagrant/idempiere/erp_academy"
 
-#check if docker rocketchat container is running 
+cd $WDIR
 
-if [[ $(vagrant_idemp status | grep poweroff) == "default                   poweroff (virtualbox)" ]]; then
+#check if vagrant idempiere VM  is running 
+if [[ $($vagrant_idemp status | grep poweroff) == "default                   poweroff (virtualbox)" ]]; then
     echo Vagrant Idempiere instance is not running $(date) >> $LOGFILE
         
     #Go to the rocketchat directory
